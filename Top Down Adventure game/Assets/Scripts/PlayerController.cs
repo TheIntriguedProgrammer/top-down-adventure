@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// get access to the scene management library
+using UnityEngine.SceneManagement; // importing SceneManagement Library
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,5 +50,29 @@ public class PlayerController : MonoBehaviour
 
 
         transform.position = newPosition;
+
+
+
+
+
+
+        
     }
+
+    // code which detects the collision 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // this if statement check for a collision in the scene and then checks the tag of the gameobject the palyer is colliding with the see if it equals to the assign tag.
+        if (collision.gameObject.tag.Equals("door"))
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(1);// access SceneManager class for LoadScene Function
+            // this code allow you to load another scene
+            // the name of the new scene is indoor
+            // remember to add the scene to your build settings
+        }
+    }
+
+
+
 }
