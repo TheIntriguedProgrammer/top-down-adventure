@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     //speed variable
     public float speed = 0.5f;
+    public bool gotKey = false; // remember to camel cases
+    public GameObject key;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,22 @@ public class PlayerController : MonoBehaviour
             // this code allow you to load another scene
             // the name of the new scene is indoor
             // remember to add the scene to your build settings
+        }
+        if (collision.gameObject.tag.Equals("key")) 
+        {
+           
+            // note the has the key after it disappears
+
+            Debug.Log("hit aahh got key");
+            key.SetActive(false);// key disappears
+            gotKey = true;// player has the key now
+
+        
+        
+        
+        
+        
+        
         }
     }
 
