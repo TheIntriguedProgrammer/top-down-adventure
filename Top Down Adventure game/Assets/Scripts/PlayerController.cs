@@ -12,12 +12,21 @@ public class PlayerController : MonoBehaviour
     public bool gotKey = false; // remember to camel cases
     public GameObject key;
     
+    public static PlayerController instance;//  this is a variable that creates a object of the current class which will allow us to look for duplicates in the current game scene
+    // creating a object of the class to be findable."static" allows us to access from anywhere.
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        if (instance != null)// check if instance is in the scene
+        {
+            Destroy(gameObject);// deletes the current character in the scene
+            return;// end code
+        }
+        
+        instance = this; // when the instance is destroyed it need to be replaced with the currently used object.
+        // prevent the gameobject of the character from being destroyed when enter new scene "gameObject parameter refers to the current game object in play"
+        GameObject.DontDestroyOnLoad(gameObject);
         
     }
 
@@ -83,12 +92,14 @@ public class PlayerController : MonoBehaviour
             key.SetActive(false);// key disappears
             gotKey = true;// player has the key now
 
-        
-        
-        
-        
-        
-        
+        }
+
+        if (collision.gameObject.tag.Equals("scenetwodoor"))
+        {
+
+            Debug.Log("ahh hit hit");
+            SceneManager.LoadScene(0); // access SceneManager 
+            // this allows the player to return to the original scene when they collide with the door in scene 2.
         }
     }
 
