@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     //speed variable
     public float speed = 0.5f;
     public bool gotKey = false; // remember to camel cases
-    public GameObject key;
+    //public GameObject key;
     
     public static PlayerController instance;//  this is a variable that creates a object of the current class which will allow us to look for duplicates in the current game scene
     // creating a object of the class to be findable."static" allows us to access from anywhere.
@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
             // note the has the key after it disappears
 
             Debug.Log("hit aahh got key");
-            key.SetActive(false);// key disappears
-            gotKey = true;// player has the key now
+           // key.SetActive(false);// key disappears
+           gotKey = true;// player has the key now
 
         }
 
@@ -100,6 +100,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log("ahh hit hit");
             SceneManager.LoadScene(0); // access SceneManager 
             // this allows the player to return to the original scene when they collide with the door in scene 2.
+        }
+
+        if (collision.gameObject.tag.Equals("end exit door") && gotKey == true) // need to satisfy both conditions to be true for the player to enter the door
+        {
+
+            Debug.Log("the exit door is ");// when we interact with the end game exit door for the game.
+            SceneManager.LoadScene(2);// load the end scene
+        
+        
+        
+        
         }
     }
 
