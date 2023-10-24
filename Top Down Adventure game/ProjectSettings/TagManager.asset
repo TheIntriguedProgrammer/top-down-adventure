@@ -8,6 +8,7 @@ TagManager:
   - key
   - scenetwodoor
   - end exit door
+  - npc
   layers:
   - Default
   - TransparentFX

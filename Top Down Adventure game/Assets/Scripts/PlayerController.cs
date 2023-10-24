@@ -112,6 +112,10 @@ public class PlayerController : MonoBehaviour
         
         
         }
+        if (collision.gameObject.tag.Equals("npc"))
+        {
+            Debug.Log("yeah whats up");
+        }
     }
 
 
