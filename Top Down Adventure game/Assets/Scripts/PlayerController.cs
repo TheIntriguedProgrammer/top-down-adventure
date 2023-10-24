@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 0.5f;
     public bool gotKey = false; // remember to camel cases
     //public GameObject key;
+    public GameObject Dialogwindow;
     
     public static PlayerController instance;//  this is a variable that creates a object of the current class which will allow us to look for duplicates in the current game scene
     // creating a object of the class to be findable."static" allows us to access from anywhere.
