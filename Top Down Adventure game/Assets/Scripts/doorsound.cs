@@ -21,7 +21,7 @@ public class doorsound : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log("i hear yah");
+            Debug.Log("i hear yahhhhhh");
             Doorsfx.Play();
         
         

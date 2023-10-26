@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 0.5f;
     public bool gotKey = false; // remember to camel cases
     //public GameObject key;
-    public GameObject Dialogwindow;
-    
+ 
+
+
     public static PlayerController instance;//  this is a variable that creates a object of the current class which will allow us to look for duplicates in the current game scene
     // creating a object of the class to be findable."static" allows us to access from anywhere.
 
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
         // prevent the gameobject of the character from being destroyed when enter new scene "gameObject parameter refers to the current game object in play"
         GameObject.DontDestroyOnLoad(gameObject);
         
+
+
     }
 
     // Update is called once per frame
@@ -65,7 +68,7 @@ public class PlayerController : MonoBehaviour
         transform.position = newPosition;
 
 
-
+        
 
 
 
@@ -78,11 +81,12 @@ public class PlayerController : MonoBehaviour
         // this if statement check for a collision in the scene and then checks the tag of the gameobject the palyer is colliding with the see if it equals to the assign tag.
         if (collision.gameObject.tag.Equals("door"))
         {
-            Debug.Log("hit");
+            Debug.Log("hit portal to two");
             SceneManager.LoadScene(1);// access SceneManager class for LoadScene Function
             // this code allow you to load another scene
             // the name of the new scene is indoor
             // remember to add the scene to your build settings
+            
         }
         if (collision.gameObject.tag.Equals("key")) 
         {
@@ -108,15 +112,14 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("the exit door is ");// when we interact with the end game exit door for the game.
             SceneManager.LoadScene(2);// load the end scene
+            
         
         
         
         
         }
-        if (collision.gameObject.tag.Equals("npc"))
-        {
-            Debug.Log("yeah whats up");
-        }
+       
+
     }
 
 
